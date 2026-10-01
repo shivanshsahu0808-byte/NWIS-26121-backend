@@ -65,25 +65,13 @@ class LoginRequest(BaseModel):
 @app.post("/api/login")
 def login(request: LoginRequest):
 
-    VALID_USERNAME = "admin"
-    VALID_PASSWORD = "nwis123"
-
-    if (
-        request.username == VALID_USERNAME
-        and request.password == VALID_PASSWORD
-    ):
-        return {
-            "success": True,
-            "message": "Login successful",
-            "user": {
-                "username": "admin",
-                "role": "Drilling Engineer"
-            }
-        }
-
     return {
-        "success": False,
-        "message": "Invalid username or password"
+        "success": True,
+        "message": "Login successful",
+        "user": {
+            "username": request.username,
+            "role": "Drilling Engineer"
+        }
     }
 
 
